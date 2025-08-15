@@ -1,0 +1,5 @@
+config ZMK_OS_MODULE
+    bool "Enable ZMK OS-dependent key behavior module"
+    default y
+    help
+      Enables OS-aware behaviors for switching OS mode and sending OS-dependent keycodes.

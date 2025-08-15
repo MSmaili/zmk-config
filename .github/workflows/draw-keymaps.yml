@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "config/*.keymap"
-      - "config/*.dtsi"
-      - "config/includes/*.dtsi"
       - "tools/keymap-drawer/config.yaml"
 
 jobs:

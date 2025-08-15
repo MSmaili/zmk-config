@@ -1,0 +1,4 @@
+#pragma once
+
+#define OS_LINUX 0
+#define OS_MAC   1

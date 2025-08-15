@@ -1,0 +1,5 @@
+if(CONFIG_ZMK_OS_MODULE)
+    zephyr_include_directories(include)
+    zephyr_library_sources(src/behaviors/behavior_set_os.c)
+    zephyr_library_sources(src/behaviors/behavior_os_kp.c)
+endif()

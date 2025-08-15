@@ -9,6 +9,8 @@ manifest:
       # Extra module for battery indicator
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: muhametsmaili
+      url-base: https://github.com/muhametsmaili
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,6 +21,9 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    - name: test-os
+      remote: muhametsmaili
       revision: main
   self:
     path: config

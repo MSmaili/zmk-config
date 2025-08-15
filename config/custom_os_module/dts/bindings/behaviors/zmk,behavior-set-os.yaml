@@ -1,0 +1,12 @@
+description: ZMK behavior for switching OS mode
+
+compatible: "zmk,behavior-set-os"
+
+include: base.yaml
+
+properties:
+  label:
+    type: string
+  "#binding-cells":
+    type: int
+    const: 1

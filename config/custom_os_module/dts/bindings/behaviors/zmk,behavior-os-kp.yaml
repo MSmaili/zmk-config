@@ -1,0 +1,22 @@
+description: ZMK behavior for OS-dependent key presses
+
+compatible: "zmk,behavior-os-kp"
+
+include: base.yaml
+
+properties:
+  label:
+    type: string
+  "#binding-cells":
+    type: int
+    const: 2
+  default:
+    type: string
+    enum:
+      - "linux"
+      - "mac"
+    default: "linux"
+    description: |
+      Determines parameter ordering:
+      - "linux": param1=Linux keycode, param2=Mac keycode
+      - "mac": param1=Mac keycode, param2=Linux keycode
