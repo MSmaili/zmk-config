@@ -40,8 +40,7 @@ include:
 
     # Forager
   - board: seeeduino_xiao_ble
-    # shield: forager_dongle rgbled_adapter
-    shield: forager_dongle
+    shield: forager_dongle rgbled_adapter
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: forager_dongle
