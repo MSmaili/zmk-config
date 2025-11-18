@@ -49,11 +49,11 @@ include:
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: forager_left_peripheral
   - board: seeeduino_xiao_ble
-    shield: forager_left
+    shield: forager_left rgbled_adapter
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
     artifact-name: forager_left_central
   - board: seeeduino_xiao_ble
-    shield: forager_right
+    shield: forager_right rgbled_adapter
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: forager_right
 
