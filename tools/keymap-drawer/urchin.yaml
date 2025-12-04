@@ -140,9 +140,41 @@ layers:
   - ''
   - ''
   - {type: held}
-  MSE: ['', Back Click, Middle Click, Forward Click, '', '', Scroll ↑, Mouse ↑, '', '', Scroll ←, '$$phosphor:regular/mouse-left-click$$', Scroll ↓, '$$phosphor:regular/mouse-right-click$$',
-    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', '', '', '', '', '', '', '', '', '', Toggle MSE, '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$',
-    Toggle MSE]
+  MSE:
+  - ''
+  - Back Click
+  - Middle Click
+  - Forward Click
+  - ''
+  - ''
+  - Scroll ↑
+  - Mouse ↑
+  - ''
+  - ''
+  - Scroll ←
+  - $$phosphor:regular/mouse-left-click$$
+  - Scroll ↓
+  - $$phosphor:regular/mouse-right-click$$
+  - Scroll →
+  - ''
+  - Mouse ←
+  - Mouse ↓
+  - Mouse →
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: MSE, h: toggle}
+  - $$phosphor:regular/mouse-left-click$$
+  - $$phosphor:regular/mouse-right-click$$
+  - {t: MSE, h: toggle}
 combos:
 - p: [12, 13]
   k: Delete
