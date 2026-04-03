@@ -234,14 +234,14 @@ parse_config:
   layer_legend_map: {}
   mark_alternate_layer_activators: false
   modifier_fn_map:
-    left_ctrl: $$phosphor:regular/control$$
-    right_ctrl: $$phosphor:regular/control$$
-    left_shift: $$phosphor:regular/arrow-fat-up$$
-    right_shift: $$phosphor:regular/arrow-fat-up$$
-    left_alt: $$phosphor:regular/option$$
-    right_alt: $$phosphor:regular/option$$
-    left_gui: $$phosphor:regular/command$$
-    right_gui: $$phosphor:regular/command$$
+    left_ctrl: Ctrl
+    right_ctrl: Ctrl
+    left_shift: Shift
+    right_shift: Shift
+    left_alt: Alt
+    right_alt: Alt
+    left_gui: Cmd
+    right_gui: Cmd
     keycode_combiner: '{mods} + {key}'
     mod_combiner: '{mod_1} + {mod_2}'
     special_combinations:
@@ -351,6 +351,9 @@ parse_config:
     LG(C): Copy
     LG(X): Cut
     LG(V): Paste
+    LC(LA(LS(LGUI))): $$mdi:flash$$
+    LC(LA(LS(LG(F14)))): Hyper F14
+    LC(LA(LS(LG(F12)))): Hyper F12
     LA(LEFT): Prev Word
     LA(RIGHT): Next Word
     LA(BSPC): Del Word

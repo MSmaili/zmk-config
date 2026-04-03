@@ -17,7 +17,7 @@
 };
 
 &mmv_input_listener {
-    input-processors = <&zip_xy_scaler 1 2>;
+    input-processors = <&zip_xy_scaler 4 3>;
 };
 
 &msc_input_listener {
@@ -31,7 +31,7 @@
             #binding-cells = <1>;
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <180>;
+            time-to-max-speed-ms = <171>;
             acceleration-exponent = <1>;
             trigger-period-ms = <16>;
         };

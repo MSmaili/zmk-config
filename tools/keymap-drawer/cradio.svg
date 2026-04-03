@@ -1,5 +1,8 @@
 <svg width="1580" height="1525" viewBox="0 0 1580 1525" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>/* start glyphs */
+<svg id="mdi:flash">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-flash" viewBox="0 0 24 24"><path d="M7,2V13H10V22L17,10H13L17,2H7Z" /></svg>
+</svg>
 <svg id="mdi:keyboard-space">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-keyboard-space" viewBox="0 0 24 24"><path d="M3 15H5V19H19V15H21V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15Z" /></svg>
 </svg>
@@ -397,6 +400,7 @@ use.phosphor\:regular\/control {
 <g transform="translate(30, 207)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Z</text>
+<use href="#mdi:flash" xlink:href="#mdi:flash" x="-6" y="14" height="12" width="12.0" class="key hold glyph mdi:flash"/>
 </g>
 <g transform="translate(90, 169)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -702,27 +706,29 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(90, 109)" class="key keypos-11">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">F14</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.9em">Prev</tspan><tspan x="0" dy="1.2em">Word</tspan>
+</text>
 <use href="#phosphor:regular/option" xlink:href="#phosphor:regular/option" x="-6" y="14" height="12" width="12.0" class="key hold glyph phosphor:regular/option"/>
 </g>
 <g transform="translate(150, 90)" class="key keypos-12">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.9em">Prev</tspan><tspan x="0" dy="1.2em">Word</tspan>
+<tspan x="0" dy="-0.9em">Del</tspan><tspan x="0" dy="1.2em">Word</tspan>
 </text>
 <use href="#phosphor:regular/command" xlink:href="#phosphor:regular/command" x="-6" y="14" height="12" width="12.0" class="key hold glyph phosphor:regular/command"/>
 </g>
 <g transform="translate(210, 107)" class="key keypos-13">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.9em">Del</tspan><tspan x="0" dy="1.2em">Word</tspan>
+<tspan x="0" dy="-0.9em">Next</tspan><tspan x="0" dy="1.2em">Word</tspan>
 </text>
 <use href="#phosphor:regular/arrow-fat-up" xlink:href="#phosphor:regular/arrow-fat-up" x="-6" y="14" height="12" width="12.0" class="key hold glyph phosphor:regular/arrow-fat-up"/>
 </g>
 <g transform="translate(270, 115)" class="key keypos-14">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Next</tspan><tspan x="0" dy="1.2em">Word</tspan>
+<tspan x="0" dy="-0.6em">Hyper</tspan><tspan x="0" dy="1.2em">F14</tspan>
 </text>
 </g>
 <g transform="translate(450, 115)" class="key keypos-15">
@@ -761,7 +767,9 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(150, 150)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">F15</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Hyper</tspan><tspan x="0" dy="1.2em">F12</tspan>
+</text>
 </g>
 <g transform="translate(210, 167)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>

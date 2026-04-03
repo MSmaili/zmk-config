@@ -1,6 +1,8 @@
 name: Build ZMK firmware
 on:
   push:
+    branches:
+      - main
     paths:
       - 'config/**'
       - '.github/workflows/build.yml'
@@ -11,6 +13,10 @@ on:
       - '.github/workflows/build.yml'
       - 'build.yaml'
   workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:

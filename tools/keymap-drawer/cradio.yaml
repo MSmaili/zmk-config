@@ -21,7 +21,7 @@ layers:
   - {t: K, h: '$$phosphor:regular/command$$'}
   - {t: L, h: '$$phosphor:regular/option$$'}
   - {t: ;, h: '$$phosphor:regular/control$$'}
-  - Z
+  - {t: Z, h: '$$mdi:flash$$'}
   - X
   - C
   - V
@@ -82,10 +82,10 @@ layers:
   - '9'
   - '0'
   - {t: Print Scrn, h: '$$phosphor:regular/control$$'}
-  - {t: F14, h: '$$phosphor:regular/option$$'}
-  - {t: Prev Word, h: '$$phosphor:regular/command$$'}
-  - {t: Del Word, h: '$$phosphor:regular/arrow-fat-up$$'}
-  - Next Word
+  - {t: Prev Word, h: '$$phosphor:regular/option$$'}
+  - {t: Del Word, h: '$$phosphor:regular/command$$'}
+  - {t: Next Word, h: '$$phosphor:regular/arrow-fat-up$$'}
+  - Hyper F14
   - ←
   - {t: ↓, h: '$$phosphor:regular/arrow-fat-up$$'}
   - {t: ↑, h: '$$phosphor:regular/command$$'}
@@ -93,7 +93,7 @@ layers:
   - {t: '$$mdi:volume-high$$', h: '$$phosphor:regular/control$$'}
   - $$mdi:volume-off$$
   - Toggle MSE
-  - F15
+  - Hyper F12
   - PgUp
   - Home
   - End

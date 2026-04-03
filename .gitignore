@@ -1,0 +1,4 @@
+.DS_Store
+
+# Local firmware build artifacts
+/build/
