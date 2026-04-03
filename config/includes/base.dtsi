@@ -42,13 +42,6 @@
     };
 
     behaviors {
-        tof: toggle_layer_off {
-            compatible = "zmk,behavior-toggle-layer";
-            #binding-cells = <1>;
-            display-name = "Toggle Layer off";
-            toggle-mode = "off";
-        };
-
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
             label = "HMR";
@@ -85,7 +78,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <230>;
             quick-tap-ms = <140>;
-            hold-trigger-key-positions = <LTROW RTROW RMROW LB0 RB0 LM4 LB4 RB4 THUMBS>;
+            hold-trigger-key-positions = <LTROW RTROW RMROW LM4 LB4 LB3 LB2 LB0 RB0 RB4 THUMBS>;
         };
 
         lth: lthumb {
@@ -116,7 +109,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <190>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <130>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             //hold-trigger-on-release;
         };
@@ -129,7 +122,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <190>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <130>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             //hold-trigger-on-release;
         };
@@ -155,7 +148,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┼─────────────┼───────────────┤
      &hml LCTRL A, &hml LALT S,  &hml LGUI D,  &lsm LSHFT F, &kp G,            &kp H,           &rsm RSHFT J, &hmr LGUI K,    &hmr LALT L,  &hmr LCTRL SEMI,\
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┼─────────────┼───────────────┤
-     &mt LC(LA(LS(LGUI))) Z,        &kp X,        &kp C,        &kp V,        &kp B,            &kp N,           &kp M,          &kp COMMA,      &kp DOT,     &kp SLASH,    \
+     &hml LC(LA(LS(LGUI))) Z,       &kp X,        &kp C,        &kp V,        &kp B,            &kp N,           &kp M,          &kp COMMA,      &kp DOT,     &hmr LC(LA(LS(LGUI))) SLASH, \
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┴─────────────┴───────────────╯
                                  &trans,      &lth SYM SPACE, &hp RCTRL TAB,  &hp LSHFT ENTER,  &rth NAV BSPC,   &trans
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰───────────────┴───────────────┴─────────────╯
@@ -215,9 +208,9 @@
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
      &msc SCRL_LEFT,      &mkp LCLK,        &msc SCRL_DOWN,     &mkp RCLK,     &msc SCRL_RIGHT,         &none,                &mmv MOVE_LEFT,     &mmv MOVE_DOWN,    &mmv MOVE_RIGHT,        &none,         \
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
-     &none,               &drag_on,            &drag_off,          &none,         &none,                   &none,                &none,                 &none,          &none,                  &none,         \
+     &none,               &drag_on,            &drag_off,          &none,         &none,                &none,                &none,                 &none,          &none,                  &none,         \
 // ╰────────────────────┴───────────────┴────────────────────┼───────────────┼────────────────────┤   ├─────────────────┴────────────────────┴────────────────────┴────────────────────┴────────────────────╯
-                                                &trans,         &mo MSE_FAST,  &mkp LCLK,               &mkp RCLK,            &tof MSE,              &trans       \
+                                                &trans,         &mo MSE_FAST,  &mkp LCLK,               &mkp RCLK,            &tog MSE,              &trans       \
 //                                      ╰────────────────────┴───────────────┴────────────────────╯   ╰─────────────────┴────────────────────┴────────────────────╯
          )>;
         };
@@ -230,9 +223,9 @@
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
      &fmsc MOVE_LEFT,     &mkp LCLK,        &fmsc MOVE_DOWN,    &mkp RCLK,     &fmsc MOVE_RIGHT,        &none,                &fmmv MOVE_LEFT,    &fmmv MOVE_DOWN,   &fmmv MOVE_RIGHT,       &none,         \
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
-     &none,               &drag_on,            &drag_off,          &none,         &none,                   &none,                &none,              &none,             &none,                  &none,         \
+     &none,               &drag_on,            &drag_off,          &none,         &none,                &none,                &none,              &none,             &none,                  &none,         \
 // ╰────────────────────┴───────────────┴────────────────────┼───────────────┼────────────────────┤   ├─────────────────┴────────────────────┴────────────────────┴────────────────────┴────────────────────╯
-                                                &trans,         &trans,        &mkp LCLK,               &mkp RCLK,            &tof MSE,              &trans       \
+                                                &trans,         &trans,        &mkp LCLK,               &mkp RCLK,            &none,              &trans       \
 //                                      ╰────────────────────┴───────────────┴────────────────────╯   ╰─────────────────┴────────────────────┴────────────────────╯
          )>;
         };

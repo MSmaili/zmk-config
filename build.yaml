@@ -60,5 +60,7 @@ include:
     # Reset shields
   - board: nice_nano//zmk
     shield: settings_reset
+    artifact-name: settings_reset_nice_nano
   - board: xiao_ble//zmk
     shield: settings_reset
+    artifact-name: settings_reset_xiao_ble
