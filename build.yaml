@@ -1,64 +1,64 @@
 include:
   # Sweep
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: cradio_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: sweep_left_peripheral
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: cradio_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
     artifact-name: sweep_left_central
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: cradio_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: sweep_right
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: cradio_dongle
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: sweep_dongle
 
     # Urchin
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: urchin_dongle rgbled_adapter
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: urchin_dongle
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: urchin_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: urchin_left_peripheral
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: urchin_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
     artifact-name: urchin_left_central
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: urchin_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: urchin_right
 
     # Forager
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: forager_dongle rgbled_adapter
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: forager_dongle
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: forager_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: forager_left_peripheral
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: forager_left rgbled_adapter
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
     artifact-name: forager_left_central
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: forager_right rgbled_adapter
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: forager_right
 
     # Reset shields
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: settings_reset
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: settings_reset
