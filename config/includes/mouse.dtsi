@@ -2,6 +2,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100   // default: 10
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &mmv {
     acceleration-exponent = <1>;      // 1
@@ -10,7 +11,51 @@
 };
 
 &msc {
-    acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <70>;      // 300
+    acceleration-exponent = <0>;      // 0
+    time-to-max-speed-ms = <120>;     // 300
     trigger-period-ms = <16>;
+};
+
+&mmv_input_listener {
+    input-processors = <&zip_xy_scaler 1 2>;
+};
+
+&msc_input_listener {
+    input-processors = <&zip_scroll_scaler 1 1>;
+};
+
+/ {
+    behaviors {
+        fmmv: fast_mouse_move {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_X>;
+            y-input-code = <INPUT_REL_Y>;
+            time-to-max-speed-ms = <180>;
+            acceleration-exponent = <1>;
+            trigger-period-ms = <16>;
+        };
+
+        fmsc: fast_mouse_scroll {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            time-to-max-speed-ms = <70>;
+            acceleration-exponent = <0>;
+            trigger-period-ms = <16>;
+        };
+    };
+
+    fmmv_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&fmmv>;
+        input-processors = <&zip_xy_scaler 2 1>;
+    };
+
+    fmsc_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&fmsc>;
+        input-processors = <&zip_scroll_scaler 2 1>;
+    };
 };

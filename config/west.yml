@@ -15,7 +15,8 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # revision: main
+      revision: v0.3
       import: app/west.yml
     - name: urchin-zmk-module
       remote: duckyb
@@ -25,6 +26,6 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main
+      revision: v0.3
   self:
     path: config

@@ -7,7 +7,7 @@ draw_config:
   key_rx: 6.0
   key_ry: 6.0
   dark_mode: true
-  n_columns: 1
+  n_columns: 2
   separate_combo_diagrams: false
   combo_diagrams_scale: 3
   inner_pad_w: 2.0
@@ -187,8 +187,12 @@ parse_config:
     '&soft_off': Soft Off
     '&out OUT_USB': Out USB
     '&out OUT_BLE': Out BT
-    '&tof MSE': Toggle MSE
-    '&tof 4': Toggle MSE
+    '&tog MSE': Toggle MSE
+    '&sl MSE': Sticky MSE
+    '&tof MSE': Exit MSE
+    '&tof 4': Exit MSE
+    '&drag_on': Drag On
+    '&drag_off': Drag Off
     '&bt BT_SEL 0': BT 1
     '&bt BT_SEL 1': BT 2
     '&bt BT_SEL 2': BT 3
@@ -200,6 +204,18 @@ parse_config:
     '&mmv MOVE_DOWN': Mouse ↓
     '&mmv MOVE_LEFT': Mouse ←
     '&mmv MOVE_RIGHT': Mouse →
+    '&fmmv MOVE_UP': Mouse ↑↑
+    '&fmmv MOVE_DOWN': Mouse ↓↓
+    '&fmmv MOVE_LEFT': Mouse ←←
+    '&fmmv MOVE_RIGHT': Mouse →→
+    '&fmsc MOVE_UP': Scroll ↑↑
+    '&fmsc MOVE_DOWN': Scroll ↓↓
+    '&fmsc MOVE_LEFT': Scroll ←←
+    '&fmsc MOVE_RIGHT': Scroll →→
+    '&msc MOVE_UP': Scroll ↑
+    '&msc MOVE_DOWN': Scroll ↓
+    '&msc MOVE_LEFT': Scroll ←
+    '&msc MOVE_RIGHT': Scroll →
     '&msc SCRL_UP': Scroll ↑
     '&msc SCRL_DOWN': Scroll ↓
     '&msc SCRL_LEFT': Scroll ←
@@ -226,8 +242,8 @@ parse_config:
     right_alt: $$phosphor:regular/option$$
     left_gui: $$phosphor:regular/command$$
     right_gui: $$phosphor:regular/command$$
-    keycode_combiner: '{mods}+{key}'
-    mod_combiner: '{mod_1}+{mod_2}'
+    keycode_combiner: '{mods} + {key}'
+    mod_combiner: '{mod_1} + {mod_2}'
     special_combinations:
       left_ctrl+left_alt+left_gui+left_shift: Hyper
       left_ctrl+left_alt+left_shift: Meh
@@ -320,7 +336,7 @@ parse_config:
     RSHFT: $$phosphor:regular/arrow-fat-up$$
     ESC: Esc
     SPACE: $$mdi:keyboard-space$$
-    BSPC: $$phosphor:regular/backspace$$
+    BSPC: Bspc
     RET: ⏎
     ENTER: ⏎
     TAB: ↹
@@ -335,6 +351,9 @@ parse_config:
     LG(C): Copy
     LG(X): Cut
     LG(V): Paste
+    LA(LEFT): Prev Word
+    LA(RIGHT): Next Word
+    LA(BSPC): Del Word
     UP: ↑
     DOWN: ↓
     LEFT: ←

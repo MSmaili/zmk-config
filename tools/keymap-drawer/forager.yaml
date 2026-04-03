@@ -34,7 +34,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', h: SYM}
   - {t: ↹, h: '$$phosphor:regular/control$$'}
   - {t: ⏎, h: '$$phosphor:regular/arrow-fat-up$$'}
-  - {t: '$$phosphor:regular/backspace$$', h: NAV}
+  - {t: Bspc, h: NAV}
   SYM:
   - '!'
   - '@'
@@ -82,18 +82,18 @@ layers:
   - '9'
   - '0'
   - {t: Print Scrn, h: '$$phosphor:regular/control$$'}
-  - {t: ▽, type: trans}
-  - {t: '$$mdi:skip-backward$$', h: '$$phosphor:regular/command$$'}
-  - {t: '$$mdi:play-pause$$', h: '$$phosphor:regular/arrow-fat-up$$'}
-  - $$mdi:skip-forward$$
+  - {t: F14, h: '$$phosphor:regular/option$$'}
+  - {t: Prev Word, h: '$$phosphor:regular/command$$'}
+  - {t: Del Word, h: '$$phosphor:regular/arrow-fat-up$$'}
+  - Next Word
   - ←
   - {t: ↓, h: '$$phosphor:regular/arrow-fat-up$$'}
   - {t: ↑, h: '$$phosphor:regular/command$$'}
   - {t: →, h: '$$phosphor:regular/option$$'}
   - {t: '$$mdi:volume-high$$', h: '$$phosphor:regular/control$$'}
   - $$mdi:volume-off$$
-  - {t: ▽, type: trans}
-  - APP
+  - Toggle MSE
+  - F15
   - PgUp
   - Home
   - End
@@ -140,41 +140,44 @@ layers:
   - ''
   - ''
   - {type: held}
-  MSE:
+  MSE: ['', Back Click, Middle Click, Forward Click, '', '', Scroll ↑, Mouse ↑, '', '', Scroll ←, '$$phosphor:regular/mouse-left-click$$', Scroll ↓, '$$phosphor:regular/mouse-right-click$$',
+    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', Drag On, Drag Off, '', '', '', '', '', '', '', MSF, '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$',
+    Exit MSE]
+  MSF:
   - ''
   - Back Click
   - Middle Click
   - Forward Click
   - ''
   - ''
-  - Scroll ↑
-  - Mouse ↑
+  - Scroll ↑↑
+  - Mouse ↑↑
   - ''
   - ''
-  - Scroll ←
+  - Scroll ←←
   - $$phosphor:regular/mouse-left-click$$
-  - Scroll ↓
+  - Scroll ↓↓
   - $$phosphor:regular/mouse-right-click$$
-  - Scroll →
+  - Scroll →→
   - ''
-  - Mouse ←
-  - Mouse ↓
-  - Mouse →
-  - ''
-  - ''
+  - Mouse ←←
+  - Mouse ↓↓
+  - Mouse →→
   - ''
   - ''
-  - ''
-  - ''
+  - Drag On
+  - Drag Off
   - ''
   - ''
   - ''
   - ''
   - ''
-  - {t: MSE, h: toggle}
+  - ''
+  - ''
+  - {type: held}
   - $$phosphor:regular/mouse-left-click$$
   - $$phosphor:regular/mouse-right-click$$
-  - {t: MSE, h: toggle}
+  - Exit MSE
 combos:
 - p: [12, 13]
   k: Delete
@@ -187,7 +190,7 @@ combos:
   l: [BASE]
 - p: [6, 7, 8]
   k: Scroll ↑
-  l: [BASE, MSE]
+  l: [BASE, MSE, MSF]
   a: top
   o: 0.4
 - p: [16, 17]
@@ -206,12 +209,9 @@ combos:
   l: [BASE]
   a: bottom
   o: 0.2
-- p: [17, 18]
-  k: {t: MSE, h: toggle}
-  l: [BASE]
 - p: [26, 27, 28]
   k: Scroll ↓
-  l: [BASE, MSE]
+  l: [BASE, MSE, MSF]
   a: bottom
   o: 0.2
 - p: [0, 1]
