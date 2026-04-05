@@ -6,6 +6,15 @@
 <svg id="mdi:keyboard-space">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-keyboard-space" viewBox="0 0 24 24"><path d="M3 15H5V19H19V15H21V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15Z" /></svg>
 </svg>
+<svg id="mdi:play-pause">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-play-pause" viewBox="0 0 24 24"><path d="M3,5V19L11,12M13,19H16V5H13M18,5V19H21V5" /></svg>
+</svg>
+<svg id="mdi:skip-backward">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-skip-backward" viewBox="0 0 24 24"><path d="M20,5V19L13,12M6,5V19H4V5M13,5V19L6,12" /></svg>
+</svg>
+<svg id="mdi:skip-forward">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-skip-forward" viewBox="0 0 24 24"><path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" /></svg>
+</svg>
 <svg id="mdi:volume-high">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-volume-high" viewBox="0 0 24 24"><path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" /></svg>
 </svg>
@@ -729,7 +738,7 @@ use.phosphor\:regular\/control {
 <g transform="translate(270, 115)" class="key keypos-14">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Hyper</tspan><tspan x="0" dy="1.2em">F14</tspan>
+<tspan x="0" dy="-1.2em">Meh</tspan><tspan x="0" dy="1.2em">+</tspan><tspan x="0" dy="1.2em">F14</tspan>
 </text>
 </g>
 <g transform="translate(450, 115)" class="key keypos-15">
@@ -769,7 +778,7 @@ use.phosphor\:regular\/control {
 <g transform="translate(150, 150)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Hyper</tspan><tspan x="0" dy="1.2em">F12</tspan>
+<tspan x="0" dy="-1.2em">Meh</tspan><tspan x="0" dy="1.2em">+</tspan><tspan x="0" dy="1.2em">H</tspan>
 </text>
 </g>
 <g transform="translate(210, 167)" class="key keypos-23">
@@ -1120,12 +1129,15 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(510, 167)" class="key keypos-26">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:skip-backward" xlink:href="#mdi:skip-backward" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:skip-backward"/>
 </g>
 <g transform="translate(570, 150)" class="key keypos-27">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:play-pause" xlink:href="#mdi:play-pause" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:play-pause"/>
 </g>
 <g transform="translate(630, 169)" class="key keypos-28">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:skip-forward" xlink:href="#mdi:skip-forward" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:skip-forward"/>
 </g>
 <g transform="translate(690, 207)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1165,6 +1177,12 @@ use.phosphor\:regular\/control {
 <rect rx="6" ry="6" x="556" y="198" width="28" height="28" class="combo"/>
 <text x="570" y="212" class="combo tap">
 <tspan x="570" dy="-0.6em">Scroll</tspan><tspan x="570" dy="1.2em">↓</tspan>
+</text>
+</g>
+<g class="combo combopos-2">
+<rect rx="6" ry="6" x="46" y="54" width="28" height="28" class="combo"/>
+<text x="60" y="68" class="combo tap">
+<tspan x="60" dy="-0.6em">Toggle</tspan><tspan x="60" dy="1.2em">MSE</tspan>
 </text>
 </g>
 </g>
@@ -1293,12 +1311,15 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(510, 167)" class="key keypos-26">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:skip-backward" xlink:href="#mdi:skip-backward" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:skip-backward"/>
 </g>
 <g transform="translate(570, 150)" class="key keypos-27">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:play-pause" xlink:href="#mdi:play-pause" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:play-pause"/>
 </g>
 <g transform="translate(630, 169)" class="key keypos-28">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:skip-forward" xlink:href="#mdi:skip-forward" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:skip-forward"/>
 </g>
 <g transform="translate(690, 207)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1333,6 +1354,12 @@ use.phosphor\:regular\/control {
 <rect rx="6" ry="6" x="556" y="198" width="28" height="28" class="combo"/>
 <text x="570" y="212" class="combo tap">
 <tspan x="570" dy="-0.6em">Scroll</tspan><tspan x="570" dy="1.2em">↓</tspan>
+</text>
+</g>
+<g class="combo combopos-2">
+<rect rx="6" ry="6" x="46" y="54" width="28" height="28" class="combo"/>
+<text x="60" y="68" class="combo tap">
+<tspan x="60" dy="-0.6em">Toggle</tspan><tspan x="60" dy="1.2em">MSE</tspan>
 </text>
 </g>
 </g>

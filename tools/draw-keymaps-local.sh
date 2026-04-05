@@ -36,10 +36,11 @@ Usage: tools/draw-keymaps-local.sh [keyboard...]
 Parse and draw keymaps locally (YAML + SVG) using Docker.
 
 Arguments:
-  keyboard      Keyboard name (e.g. urchin) or path (config/urchin.keymap)
+  keyboard      Keyboard name (e.g. sweep, urchin) or path (config/urchin.keymap)
 
 Examples:
   tools/draw-keymaps-local.sh
+  tools/draw-keymaps-local.sh sweep
   tools/draw-keymaps-local.sh urchin cradio
   tools/draw-keymaps-local.sh forager
 
@@ -80,6 +81,10 @@ if [[ ${#keymap_args[@]} -eq 0 ]]; then
 	selected_paths=("${available_keymaps[@]}")
 else
 	for item in "${keymap_args[@]}"; do
+		if [[ "${item}" == "sweep" ]]; then
+			item="cradio"
+		fi
+
 		if [[ -f "${REPO_ROOT}/${item}" ]]; then
 			selected_paths+=("${item}")
 		elif [[ -f "${REPO_ROOT}/config/${item}.keymap" ]]; then

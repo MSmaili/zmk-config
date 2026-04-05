@@ -47,7 +47,6 @@
     behaviors {
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -61,7 +60,6 @@
 
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
-            label = "HML";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -75,7 +73,6 @@
 
         rth: rthumb {
             compatible = "zmk,behavior-hold-tap";
-            label = "RTHUMB";
             bindings = <&mo>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
@@ -86,7 +83,6 @@
 
         lth: lthumb {
             compatible = "zmk,behavior-hold-tap";
-            label = "LTHUMB";
             bindings = <&mo>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
@@ -96,7 +92,6 @@
 
         hp: hold_priority {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_PRIORITY";
             bindings = <&kp>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
@@ -106,27 +101,25 @@
 
         lsm: left_shift_mode {
             compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_SHIFT_MODE";
             bindings = <&kp>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
             tapping-term-ms = <190>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <130>;
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            require-prior-idle-ms = <120>;
+            hold-trigger-key-positions = <KEYS_R LH0 RH0>;
             //hold-trigger-on-release;
         };
 
         rsm: right_shift_mode {
             compatible = "zmk,behavior-hold-tap";
-            label = "RIGHT_SHIFT_MODE";
             bindings = <&kp>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
             tapping-term-ms = <190>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <130>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-key-positions = <KEYS_L LH0 RH0>;
             //hold-trigger-on-release;
         };
 
@@ -226,7 +219,7 @@
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
      &fmsc MOVE_LEFT,     &mkp LCLK,        &fmsc MOVE_DOWN,    &mkp RCLK,     &fmsc MOVE_RIGHT,        &none,                &fmmv MOVE_LEFT,    &fmmv MOVE_DOWN,   &fmmv MOVE_RIGHT,       &none,         \
 // ├────────────────────┼───────────────┼────────────────────┼───────────────┼────────────────────┤   ├─────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
-     &none,               &drag_on,            &drag_off,          &none,         &none,                &none,                &none,              &none,             &none,                  &none,         \
+     &none,               &drag_on,            &drag_off,          &none,         &none,                &none,                &kp C_PREV,         &kp C_PP,          &kp C_NEXT,             &none,         \
 // ╰────────────────────┴───────────────┴────────────────────┼───────────────┼────────────────────┤   ├─────────────────┴────────────────────┴────────────────────┴────────────────────┴────────────────────╯
                                                 &trans,         &trans,        &mkp LCLK,               &mkp RCLK,            &none,              &trans       \
 //                                      ╰────────────────────┴───────────────┴────────────────────╯   ╰─────────────────┴────────────────────┴────────────────────╯

@@ -85,7 +85,7 @@ layers:
   - {t: Prev Word, h: '$$phosphor:regular/option$$'}
   - {t: Del Word, h: '$$phosphor:regular/command$$'}
   - {t: Next Word, h: '$$phosphor:regular/arrow-fat-up$$'}
-  - Hyper F14
+  - Meh + F14
   - ←
   - {t: ↓, h: '$$phosphor:regular/arrow-fat-up$$'}
   - {t: ↑, h: '$$phosphor:regular/command$$'}
@@ -93,7 +93,7 @@ layers:
   - {t: '$$mdi:volume-high$$', h: '$$phosphor:regular/control$$'}
   - $$mdi:volume-off$$
   - Toggle MSE
-  - Hyper F12
+  - Meh + H
   - PgUp
   - Home
   - End
@@ -141,8 +141,8 @@ layers:
   - ''
   - {type: held}
   MSE: ['', Back Click, Middle Click, Forward Click, '', '', Scroll ↑, Mouse ↑, '', '', Scroll ←, '$$phosphor:regular/mouse-left-click$$', Scroll ↓, '$$phosphor:regular/mouse-right-click$$',
-    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', Drag On, Drag Off, '', '', '', '', '', '', '', MSF, '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$',
-    Toggle MSE]
+    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', Drag On, Drag Off, '', '', '', '$$mdi:skip-backward$$', '$$mdi:play-pause$$', '$$mdi:skip-forward$$', '', MSF,
+    '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$', Toggle MSE]
   MSF:
   - ''
   - Back Click
@@ -170,9 +170,9 @@ layers:
   - ''
   - ''
   - ''
-  - ''
-  - ''
-  - ''
+  - $$mdi:skip-backward$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-forward$$
   - ''
   - {type: held}
   - $$phosphor:regular/mouse-left-click$$
@@ -230,3 +230,6 @@ combos:
   l: [FNC]
   a: top
   o: 0.5
+- p: [0, 1]
+  k: Toggle MSE
+  l: [MSE, MSF]
