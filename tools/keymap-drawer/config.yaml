@@ -351,9 +351,9 @@ parse_config:
     LG(C): Copy
     LG(X): Cut
     LG(V): Paste
-    LC(LA(LS(LGUI))): $$mdi:flash$$
-    LC(LA(LS(LG(F14)))): Hyper F14
-    LC(LA(LS(LG(F12)))): Hyper F12
+    LA(LS(LCTRL)): $$mdi:flash$$
+    LC(LA(LS(LG(H)))): Meh F14
+    LA(LS(LS(LG(F12)))): Meh F12
     LA(LEFT): Prev Word
     LA(RIGHT): Next Word
     LA(BSPC): Del Word
