@@ -3,7 +3,7 @@ set -euo pipefail
 
 keyboard="${1:-}"
 use_dongle="${2:-0}"
-build_matrix_path="${3:-/zmk-config/build.yaml}"
+build_matrix_path="/zmk-config/build.yaml"
 
 if [[ -z "${keyboard}" ]]; then
 	echo "Keyboard is required." >&2
@@ -15,27 +15,32 @@ if [[ ! -f "${build_matrix_path}" ]]; then
 	exit 1
 fi
 
-bash /zmk-config/tools/docker/bootstrap-workspace.sh \
-	/work \
-	/zmk-config/config/west.yml \
-	0 \
-	"" \
-	"" \
-	1
-
 cd /work
 
-spec_board=""
-spec_shield=""
-spec_snippet=""
-spec_cmake_args=""
+if [[ ! -d .west ]]; then
+	west init -l /zmk-config/config
+fi
 
-load_artifact_spec() {
-	local artifact_name="$1"
-	local -a spec
+if [[ ! -d zmk || ! -d zephyr ]]; then
+	west update
+fi
 
-	mapfile -t spec < <(
-		python3 - "${build_matrix_path}" "${artifact_name}" <<'PY'
+right_artifact="${keyboard}_right"
+if [[ "${use_dongle}" == "1" ]]; then
+	target_artifacts=(
+		"${keyboard}_left_peripheral"
+		"${right_artifact}"
+		"${keyboard}_dongle"
+	)
+else
+	target_artifacts=(
+		"${right_artifact}"
+		"${keyboard}_left_central"
+	)
+fi
+
+mapfile -t artifact_specs < <(
+	python3 - "${build_matrix_path}" "${target_artifacts[@]}" <<'PY'
 import sys
 
 try:
@@ -45,49 +50,50 @@ except Exception:
     sys.exit(2)
 
 matrix_path = sys.argv[1]
-artifact_name = sys.argv[2]
+targets = sys.argv[2:]
 
 with open(matrix_path, "r", encoding="utf-8") as f:
     data = yaml.safe_load(f) or {}
 
+by_name = {}
 for row in data.get("include", []):
-    if isinstance(row, dict) and row.get("artifact-name") == artifact_name:
-        print(row.get("board", ""))
-        print(row.get("shield", ""))
-        print(row.get("snippet", ""))
-        print(row.get("cmake-args", ""))
-        sys.exit(0)
+    if isinstance(row, dict):
+        name = row.get("artifact-name")
+        if name:
+            by_name[name] = row
 
-print(f"ERROR: Artifact '{artifact_name}' not found in {matrix_path}", file=sys.stderr)
-sys.exit(1)
+for name in targets:
+    row = by_name.get(name)
+    if row is None:
+        print(f"ERROR: Artifact '{name}' not found in {matrix_path}", file=sys.stderr)
+        sys.exit(1)
+
+    board = row.get("board", "")
+    shield = row.get("shield", "")
+    snippet = row.get("snippet", "")
+    cmake_args = row.get("cmake-args", "")
+    print("\x1f".join([name, board, shield, snippet, cmake_args]))
 PY
-	)
+)
 
-	if [[ "${#spec[@]}" -ne 4 ]]; then
-		echo "Failed to parse build matrix entry for ${artifact_name}" >&2
-		exit 1
-	fi
+if [[ "${#artifact_specs[@]}" -ne "${#target_artifacts[@]}" ]]; then
+	echo "Failed to resolve build specs for ${keyboard}" >&2
+	exit 1
+fi
 
-	spec_board="${spec[0]}"
-	spec_shield="${spec[1]}"
-	spec_snippet="${spec[2]}"
-	spec_cmake_args="${spec[3]}"
+mkdir -p /out
 
-	if [[ -z "${spec_board}" || -z "${spec_shield}" ]]; then
+for spec in "${artifact_specs[@]}"; do
+	IFS=$'\x1f' read -r artifact_name board shield snippet cmake_args_raw <<<"${spec}"
+
+	if [[ -z "${board}" || -z "${shield}" ]]; then
 		echo "Invalid build matrix entry for ${artifact_name}: board/shield is missing" >&2
 		exit 1
 	fi
-}
 
-build_one() {
-	local name="$1"
-	local board="$2"
-	local shield="$3"
-	local snippet="$4"
-	local cmake_args_raw="$5"
-	local build_dir="/work/build/${name}"
-	local -a west_extra_args=()
-	local -a cmake_args=(
+	build_dir="/work/build/${artifact_name}"
+	west_extra_args=()
+	cmake_args=(
 		-DSHIELD="${shield}"
 		-DZMK_CONFIG=/zmk-config/config
 		-DZMK_EXTRA_MODULES=/zmk-config
@@ -96,53 +102,20 @@ build_one() {
 	)
 
 	if [[ -n "${snippet}" ]]; then
-		west_extra_args+=(-S "${snippet}")
+		west_extra_args=(-S "${snippet}")
 	fi
 
 	if [[ -n "${cmake_args_raw}" ]]; then
 		# shellcheck disable=SC2206
-		local -a parsed_extra_args=(${cmake_args_raw})
-		cmake_args+=("${parsed_extra_args[@]}")
+		extra_cmake_args=(${cmake_args_raw})
+		cmake_args+=("${extra_cmake_args[@]}")
 	fi
 
-	echo "==> Building ${name}"
-	echo "    board: ${board}"
-	echo "    shield: ${shield}"
-	if [[ -n "${snippet}" ]]; then
-		echo "    snippet: ${snippet}"
-	fi
-	if [[ -n "${cmake_args_raw}" ]]; then
-		echo "    cmake-args: ${cmake_args_raw}"
-	fi
+	echo "==> Building ${artifact_name}"
 	rm -rf "${build_dir}"
 	west build -d "${build_dir}" -b "${board}" "${west_extra_args[@]}" /work/zmk/app -- "${cmake_args[@]}"
 
-	mkdir -p /out
 	if [[ -f "${build_dir}/zephyr/zmk.uf2" ]]; then
-		cp "${build_dir}/zephyr/zmk.uf2" "/out/${name}.uf2"
+		cp "${build_dir}/zephyr/zmk.uf2" "/out/${artifact_name}.uf2"
 	fi
-	if [[ -f "${build_dir}/zephyr/zephyr.bin" ]]; then
-		cp "${build_dir}/zephyr/zephyr.bin" "/out/${name}.bin"
-	fi
-	if [[ -f "${build_dir}/zephyr/zephyr.hex" ]]; then
-		cp "${build_dir}/zephyr/zephyr.hex" "/out/${name}.hex"
-	fi
-}
-
-left_artifact="${keyboard}_left_peripheral"
-right_artifact="${keyboard}_right"
-
-if [[ "${use_dongle}" == "1" ]]; then
-	third_artifact="${keyboard}_dongle"
-else
-	third_artifact="${keyboard}_left_central"
-fi
-
-load_artifact_spec "${left_artifact}"
-build_one "${left_artifact}" "${spec_board}" "${spec_shield}" "${spec_snippet}" "${spec_cmake_args}"
-
-load_artifact_spec "${right_artifact}"
-build_one "${right_artifact}" "${spec_board}" "${spec_shield}" "${spec_snippet}" "${spec_cmake_args}"
-
-load_artifact_spec "${third_artifact}"
-build_one "${third_artifact}" "${spec_board}" "${spec_shield}" "${spec_snippet}" "${spec_cmake_args}"
+done

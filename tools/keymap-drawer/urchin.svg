@@ -475,8 +475,8 @@ use.phosphor\:regular\/control {
 <text x="180" y="99" class="combo tap">Delete</text>
 </g>
 <g class="combo combopos-1">
-<rect rx="6" ry="6" x="106" y="145" width="28" height="28" class="combo"/>
-<text x="120" y="159" class="combo tap">Copy</text>
+<rect rx="6" ry="6" x="106" y="146" width="28" height="28" class="combo"/>
+<text x="120" y="160" class="combo tap">Copy</text>
 </g>
 <g class="combo combopos-2">
 <rect rx="6" ry="6" x="166" y="145" width="28" height="28" class="combo"/>
@@ -497,12 +497,12 @@ use.phosphor\:regular\/control {
 </g>
 <g class="combo combopos-5">
 <path d="M150,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-17" class="combo"/>
-<path d="M150,212 h54 a6.0,6.0 0 0 0 6.0,-6.0 v-18" class="combo"/>
+<path d="M150,212 h54 a6.0,6.0 0 0 0 6.0,-6.0 v-19" class="combo"/>
 <rect rx="6" ry="6" x="136" y="198" width="28" height="28" class="combo"/>
 <text x="150" y="212" class="combo tap">Cut</text>
 </g>
 <g class="combo combopos-6">
-<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-18" class="combo"/>
+<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-19" class="combo"/>
 <path d="M570,212 l0,-42" class="combo"/>
 <path d="M570,212 h54 a6.0,6.0 0 0 0 6.0,-6.0 v-17" class="combo"/>
 <rect rx="6" ry="6" x="556" y="198" width="28" height="28" class="combo"/>
@@ -1171,7 +1171,7 @@ use.phosphor\:regular\/control {
 </text>
 </g>
 <g class="combo combopos-1">
-<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-18" class="combo"/>
+<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-19" class="combo"/>
 <path d="M570,212 l0,-42" class="combo"/>
 <path d="M570,212 h54 a6.0,6.0 0 0 0 6.0,-6.0 v-17" class="combo"/>
 <rect rx="6" ry="6" x="556" y="198" width="28" height="28" class="combo"/>
@@ -1348,7 +1348,7 @@ use.phosphor\:regular\/control {
 </text>
 </g>
 <g class="combo combopos-1">
-<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-18" class="combo"/>
+<path d="M570,212 h-54 a6.0,6.0 0 0 1 -6.0,-6.0 v-19" class="combo"/>
 <path d="M570,212 l0,-42" class="combo"/>
 <path d="M570,212 h54 a6.0,6.0 0 0 0 6.0,-6.0 v-17" class="combo"/>
 <rect rx="6" ry="6" x="556" y="198" width="28" height="28" class="combo"/>

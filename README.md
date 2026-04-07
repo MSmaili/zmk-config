@@ -55,16 +55,14 @@ make build KEYBOARD=forager
 make draw KEYBOARD=sweep
 make draw KEYBOARD=urchin
 make draw KEYBOARD=forager
-make draw-all
 ```
 
 Notes:
 
 - Local firmware builds read `build.yaml` directly, so board/shield/snippet/cmake options stay aligned with CI builds.
 - Firmware output files are written to `build/local/`:
-  - `build/local/<keyboard>_left_peripheral.uf2`
-  - `build/local/<keyboard>_right.uf2`
-  - `build/local/<keyboard>_left_central.uf2` (default) or `build/local/<keyboard>_dongle.uf2` (`DONGLE=1`)
+  - Dongleless (`DONGLE=0`): `build/local/<keyboard>_right.uf2`, `build/local/<keyboard>_left_central.uf2`
+  - Dongle (`DONGLE=1`): `build/local/<keyboard>_left_peripheral.uf2`, `build/local/<keyboard>_right.uf2`, `build/local/<keyboard>_dongle.uf2`
 - Keymap-drawer output files are written to `tools/keymap-drawer/`.
 - First keymap draw builds a pinned local Docker image for keymap-drawer.
 
@@ -100,13 +98,7 @@ Notes:
   - Navigation aid: fast scroll combos (`UIO` for up, `M,.` for down)
   - Utility (on `FNC`): `Soft Off`, battery/connection indicator combos
 
-## Layer Maps
-
-- Sweep map: `tools/keymap-drawer/cradio.svg` (internal file name)
-- Urchin map: `tools/keymap-drawer/urchin.svg`
-- Forager map: `tools/keymap-drawer/forager.svg`
-
-Preview (Sweep / `cradio`):
+## Layer Map
 
 <p align="center">
 <img src="./tools/keymap-drawer/cradio.svg" alt="Shared 34-key layout preview" width="1024">

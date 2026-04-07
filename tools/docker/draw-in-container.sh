@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-KEYMAPS_CSV="${1:-}"
-WANT_UPDATE="${2:-0}"
-CONFIG_PATH="${3:-/zmk-config/tools/keymap-drawer/config.yaml}"
-OUTPUT_DIR="${4:-/zmk-config/tools/keymap-drawer}"
+KEYMAP_PATH="${1:-}"
 
-if [[ -z "${KEYMAPS_CSV}" ]]; then
-	echo "No keymaps were provided." >&2
+if [[ -z "${KEYMAP_PATH}" ]]; then
+	echo "No keymap was provided." >&2
+	exit 1
+fi
+
+if [[ ! -f "/zmk-config/${KEYMAP_PATH}" ]]; then
+	echo "Keymap not found: /zmk-config/${KEYMAP_PATH}" >&2
 	exit 1
 fi
 
 export HOME="/work/home"
 mkdir -p "${HOME}"
 
-bash /zmk-config/tools/docker/bootstrap-workspace.sh \
-	/work \
-	/zmk-config/config/west.yml \
-	"${WANT_UPDATE}" \
-	" -zmk,-zephyr" \
-	"--fetch-opt=--filter=tree:0" \
-	"0"
+cd /work
 
-IFS=',' read -r -a keymaps <<<"${KEYMAPS_CSV}"
-for keymap_path in "${keymaps[@]}"; do
-	keyboard="$(basename "${keymap_path}" .keymap)"
-	echo "==> Drawing ${keyboard}"
-	keymap -c "${CONFIG_PATH}" parse -z "/zmk-config/${keymap_path}" >"${OUTPUT_DIR}/${keyboard}.yaml"
-	keymap -c "${CONFIG_PATH}" draw "${OUTPUT_DIR}/${keyboard}.yaml" >"${OUTPUT_DIR}/${keyboard}.svg"
-done
+if [[ ! -d .west ]]; then
+	west init -l /zmk-config/config
+	west config --local manifest.project-filter "-zmk,-zephyr"
+	west update --fetch-opt=--filter=tree:0
+fi
+
+keyboard="$(basename "${KEYMAP_PATH}" .keymap)"
+
+echo "==> Drawing ${keyboard}"
+keymap -c "/zmk-config/tools/keymap-drawer/config.yaml" parse -z "/zmk-config/${KEYMAP_PATH}" >"/zmk-config/tools/keymap-drawer/${keyboard}.yaml"
+keymap -c "/zmk-config/tools/keymap-drawer/config.yaml" draw "/zmk-config/tools/keymap-drawer/${keyboard}.yaml" >"/zmk-config/tools/keymap-drawer/${keyboard}.svg"
