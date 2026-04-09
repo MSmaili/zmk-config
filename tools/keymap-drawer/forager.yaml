@@ -81,17 +81,17 @@ layers:
   - '8'
   - '9'
   - '0'
-  - {t: Print Scrn, h: '$$phosphor:regular/control$$'}
+  - {t: StartLn, h: '$$phosphor:regular/control$$'}
   - {t: Prev Word, h: '$$phosphor:regular/option$$'}
   - {t: Del Word, h: '$$phosphor:regular/command$$'}
   - {t: Next Word, h: '$$phosphor:regular/arrow-fat-up$$'}
-  - Meh + F14
+  - EndLn
   - ←
   - {t: ↓, h: '$$phosphor:regular/arrow-fat-up$$'}
   - {t: ↑, h: '$$phosphor:regular/command$$'}
   - {t: →, h: '$$phosphor:regular/option$$'}
-  - {t: '$$mdi:volume-high$$', h: '$$phosphor:regular/control$$'}
-  - $$mdi:volume-off$$
+  - {t: ⌦, h: '$$phosphor:regular/control$$'}
+  - Cmd + [
   - Toggle MSE
   - Meh + H
   - PgUp
@@ -100,7 +100,7 @@ layers:
   - PgDwn
   - ','
   - .
-  - $$mdi:volume-medium$$
+  - Cmd + ]
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -126,23 +126,23 @@ layers:
   - $$phosphor:regular/command$$
   - $$phosphor:regular/option$$
   - $$phosphor:regular/control$$
-  - BT 1
-  - BT 2
-  - BT 3
-  - BT 4
-  - {t: Reset, h: Boot}
-  - {t: Reset, h: Boot}
-  - Studio Unlock
-  - Out USB
-  - Out BT
-  - BT Clear
-  - {type: held}
+  - {t: '$$mdi:volume-medium$$', h: '$$mdi:volume-off$$'}
+  - $$mdi:skip-backward$$
   - ''
+  - Print Scrn
+  - Bright -
+  - Bright +
+  - ''
+  - $$mdi:play-pause$$
+  - $$mdi:skip-forward$$
+  - $$mdi:volume-high$$
+  - {type: held}
+  - Toggle SYS
   - ''
   - {type: held}
   MSE: ['', Back Click, Middle Click, Forward Click, '', '', Scroll ↑, Mouse ↑, '', '', Scroll ←, '$$phosphor:regular/mouse-left-click$$', Scroll ↓, '$$phosphor:regular/mouse-right-click$$',
-    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', Drag On, Drag Off, '', '', '', '$$mdi:skip-backward$$', '$$mdi:play-pause$$', '$$mdi:skip-forward$$', '', MSF,
-    '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$', Toggle MSE]
+    Scroll →, '', Mouse ←, Mouse ↓, Mouse →, '', '', Drag On, Drag Off, '', '', '', '', '', '', '', MSF, '$$phosphor:regular/mouse-left-click$$', '$$phosphor:regular/mouse-right-click$$',
+    Toggle MSE]
   MSF:
   - ''
   - Back Click
@@ -170,14 +170,49 @@ layers:
   - ''
   - ''
   - ''
-  - $$mdi:skip-backward$$
-  - $$mdi:play-pause$$
-  - $$mdi:skip-forward$$
+  - ''
+  - ''
+  - ''
   - ''
   - {type: held}
   - $$phosphor:regular/mouse-left-click$$
   - $$phosphor:regular/mouse-right-click$$
   - ''
+  SYS:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - BT 1
+  - BT 2
+  - BT 3
+  - BT 4
+  - {t: Reset, h: Boot}
+  - {t: Reset, h: Boot}
+  - Studio Unlock
+  - Out USB
+  - Out BT
+  - BT Clear
+  - ''
+  - Toggle SYS
+  - ''
+  - Base
 combos:
 - p: [12, 13]
   k: Delete

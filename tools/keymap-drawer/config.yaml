@@ -188,6 +188,8 @@ parse_config:
     '&out OUT_USB': Out USB
     '&out OUT_BLE': Out BT
     '&tog MSE': Toggle MSE
+    '&tog SYS': Toggle SYS
+    '&to BASE': Base
     '&sl MSE': Sticky MSE
     '&tof MSE': Exit MSE
     '&tof 4': Exit MSE
@@ -320,8 +322,12 @@ parse_config:
   zmk_keycode_map:
     C_MUTE: $$mdi:volume-off$$
     C_PP: $$mdi:play-pause$$
+    C_PLAY: $$mdi:play$$
+    C_STOP: $$mdi:stop$$
     C_VOL_UP: $$mdi:volume-high$$
     C_VOL_DN: $$mdi:volume-medium$$
+    C_BRI_UP: Bright +
+    C_BRI_DN: Bright -
     C_NEXT: $$mdi:skip-forward$$
     C_PREV: $$mdi:skip-backward$$
     BT: $$mdi:bluetooth$$
@@ -357,6 +363,8 @@ parse_config:
     LA(LEFT): Prev Word
     LA(RIGHT): Next Word
     LA(BSPC): Del Word
+    LG(LEFT): StartLn
+    LG(RIGHT): EndLn
     UP: ↑
     DOWN: ↓
     LEFT: ←
