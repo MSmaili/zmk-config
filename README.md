@@ -80,12 +80,14 @@ Notes:
 
 - `BASE`: QWERTY + home-row mods
 - `SYM`: symbols and punctuation in familiar QWERTY-style positions
-- `NAV`: Vim-style navigation, number row, media, word navigation
-- `FNC`: function keys, Bluetooth profile management, output switching, reset
+- `NAV`: Vim-style navigation, number row, word navigation, Delete, back/forward
+- `FNC`: function keys, media controls (volume, brightness, playback)
+- `SYS`: Bluetooth profiles, output switching (USB/BLE), reset/bootloader, ZMK Studio unlock
 - `MSE`: mouse movement, scroll, clicks, drag helpers
 - `MSE_FAST`: faster temporary mouse/scroll behavior
 
-`FNC` is also a tri-layer: it activates when both `SYM` and `NAV` are active.
+`FNC` is a tri-layer: it activates when both `SYM` and `NAV` are active.
+`SYS` is toggled from the `FNC` layer, intentionally harder to reach to avoid accidental taps
 
 ### Core behavior choices
 

@@ -19,7 +19,7 @@
 #include "mouse.dtsi"
 #include "combos.dtsi"
 
-&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE SPACE MINUS DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>; };
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>; };
 
 / {
     macros {
@@ -77,8 +77,8 @@
             bindings = <&mo>, <&kp>;
             flavor = "hold-preferred";
             #binding-cells = <2>;
-            tapping-term-ms = <185>;
-            quick-tap-ms = <120>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <130>;
         };
 
         lth: lthumb {
