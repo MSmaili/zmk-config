@@ -1,0 +1,23 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: |
+  Case mode behavior. Intercepts space and replaces it with a delimiter
+  depending on the mode: underscore (snake_case), suppress+shift (camelCase),
+  or hyphen (kebab-case).
+
+compatible: "zmk,behavior-case-mode"
+include: zero_param.yaml
+
+properties:
+  continue-list:
+    type: array
+    required: false
+    description: |
+      List of extra keycodes which do not deactivate case mode.
+      Alphanumeric characters are always included.
+  mode:
+    type: int
+    required: true
+    description: |
+      The case mode type. 0 = snake, 1 = camel, 2 = kebab.

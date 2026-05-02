@@ -265,6 +265,15 @@ combos:
   l: [FNC]
   a: top
   o: 0.5
+- p: [13, 16]
+  k: {t: '$$phosphor:regular/arrow-fat-up$$', h: sticky}
+  l: [BASE]
+- p: [23, 26]
+  k: '&case_snake'
+  l: [BASE]
+- p: [3, 6]
+  k: '&case_camel'
+  l: [BASE]
 - p: [0, 1]
   k: Toggle MSE
   l: [MSE, MSF]

@@ -514,6 +514,25 @@ use.phosphor\:regular\/control {
 <rect rx="6" ry="6" x="46" y="43" width="28" height="28" class="combo"/>
 <text x="60" y="57" class="combo tap">Esc</text>
 </g>
+<g class="combo combopos-8">
+<path d="M375,100 l-145,0" class="combo"/>
+<path d="M375,100 l145,0" class="combo"/>
+<rect rx="6" ry="6" x="361" y="86" width="28" height="28" class="combo"/>
+<use href="#phosphor:regular/arrow-fat-up" xlink:href="#phosphor:regular/arrow-fat-up" x="368" y="93" height="14" width="14.0" class="combo tap glyph phosphor:regular/arrow-fat-up"/>
+<text x="375" y="112" class="combo hold">sticky</text>
+</g>
+<g class="combo combopos-9">
+<path d="M375,160 l-145,0" class="combo"/>
+<path d="M375,160 l145,0" class="combo"/>
+<rect rx="6" ry="6" x="361" y="146" width="28" height="28" class="combo"/>
+<text x="375" y="160" class="combo tap"><tspan style="font-size: 64%">&amp;case_snake</tspan></text>
+</g>
+<g class="combo combopos-10">
+<path d="M375,40 l-145,0" class="combo"/>
+<path d="M375,40 l145,0" class="combo"/>
+<rect rx="6" ry="6" x="361" y="26" width="28" height="28" class="combo"/>
+<text x="375" y="40" class="combo tap"><tspan style="font-size: 64%">&amp;case_camel</tspan></text>
+</g>
 </g>
 </g>
 <g transform="translate(840, 0)" class="layer-SYM">

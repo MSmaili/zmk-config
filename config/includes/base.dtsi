@@ -17,6 +17,7 @@
 #define MEH_MOD LA(LS(LCTRL))
 
 #include "mouse.dtsi"
+#include "case_modes.dtsi"
 #include "combos.dtsi"
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>; };

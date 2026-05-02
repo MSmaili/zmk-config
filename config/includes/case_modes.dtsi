@@ -1,0 +1,29 @@
+// Case mode types
+#define CASE_MODE_SNAKE 0
+#define CASE_MODE_CAMEL 1
+#define CASE_MODE_KEBAB 2
+
+/ {
+    behaviors {
+        case_snake: case_snake {
+            compatible = "zmk,behavior-case-mode";
+            #binding-cells = <0>;
+            mode = <CASE_MODE_SNAKE>;
+            continue-list = <BACKSPACE DELETE>;
+        };
+
+        case_camel: case_camel {
+            compatible = "zmk,behavior-case-mode";
+            #binding-cells = <0>;
+            mode = <CASE_MODE_CAMEL>;
+            continue-list = <BACKSPACE DELETE>;
+        };
+
+        case_kebab: case_kebab {
+            compatible = "zmk,behavior-case-mode";
+            #binding-cells = <0>;
+            mode = <CASE_MODE_KEBAB>;
+            continue-list = <BACKSPACE DELETE>;
+        };
+    };
+};
