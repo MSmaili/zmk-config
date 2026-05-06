@@ -3,15 +3,18 @@ manifest:
     # zmk official
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-      # Urchin keeb
+    # Urchin keeb
     - name: duckyb
       url-base: https://github.com/duckyb
-      # Forager keeb
+    # Forager keeb
     - name: carrefinho
       url-base: https://github.com/carrefinho
-      # Extra module for battery indicator
+    # Extra module for battery indicator
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    # Case mode behavior module
+    - name: msmaili
+      url-base: https://github.com/MSmaili
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -25,6 +28,9 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    - name: zmk-case-mode
+      remote: msmaili
       revision: main
   self:
     path: config

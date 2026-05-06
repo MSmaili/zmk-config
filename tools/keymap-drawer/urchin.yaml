@@ -269,10 +269,10 @@ combos:
   k: {t: '$$phosphor:regular/arrow-fat-up$$', h: sticky}
   l: [BASE]
 - p: [23, 26]
-  k: '&case_snake'
+  k: Snake
   l: [BASE]
 - p: [3, 6]
-  k: '&case_camel'
+  k: Camel
   l: [BASE]
 - p: [0, 1]
   k: Toggle MSE
