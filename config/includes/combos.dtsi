@@ -33,6 +33,9 @@
     COMBO(softoff,           &soft_off,          LM0 RM0,            FNC,               1000, 200)
     COMBO(indbat,            &ind_bat,           LT2 RT2,            FNC,               100, 200)
     COMBO(indcon,            &ind_con,           LT1 RT1,            FNC,               100, 200)
+    COMBO(sticky_shift,      &sk LSHFT,          LM1 RM1,             BASE,              50, 150)
+    COMBO(snake_case,        &case_snake,        LB1 RB1,             BASE,              50, 150)
+    COMBO(camel_case,        &case_camel,        LT1 RT1,             BASE,              50, 150)
     COMBO(tog_mse_layer,     &tog MSE,           LT4 LT3,            MSE MSE_FAST,      40, 200, slow-release;)
   };
 };

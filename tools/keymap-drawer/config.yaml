@@ -185,6 +185,9 @@ parse_config:
     '&ind_con': Show Conn
     '&studio_unlock': Studio Unlock
     '&soft_off': Soft Off
+    '&case_snake': Snake
+    '&case_camel': Camel
+    '&case_kebab': Kebab
     '&out OUT_USB': Out USB
     '&out OUT_BLE': Out BT
     '&tog MSE': Toggle MSE

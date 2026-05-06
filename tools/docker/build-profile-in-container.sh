@@ -23,9 +23,9 @@ if [[ ! -d .west ]]; then
     ln -sfn /zmk-config/config config
 fi
 
-if [[ ! -d zmk || ! -d zephyr ]]; then
-    west update
-fi
+# Always refresh the west workspace so newly added modules in config/west.yml
+# are fetched into the cached Docker volume as well.
+west update
 
 right_artifact="${keyboard}_right"
 if [[ "${use_dongle}" == "1" ]]; then
