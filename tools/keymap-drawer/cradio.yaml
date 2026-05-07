@@ -200,7 +200,7 @@ layers:
   - ''
   - ''
   - BT 1
-  - BT 2
+  - '&bt_lin'
   - BT 3
   - BT 4
   - {t: Reset, h: Boot}
@@ -265,15 +265,29 @@ combos:
   l: [FNC]
   a: top
   o: 0.5
-- p: [13, 16]
-  k: {t: '$$phosphor:regular/arrow-fat-up$$', h: sticky}
+- p: [12, 17]
+  k: Sticky Shift
   l: [BASE]
+  draw_separate: true
 - p: [23, 26]
   k: Snake
+  l: [BASE]
+- p: [13, 16]
+  k: Kebab
   l: [BASE]
 - p: [3, 6]
   k: Camel
   l: [BASE]
+- p: [0, 1, 2]
+  k: $$mdi:apple$$
+  l: [FNC]
+  a: top
+  o: 0.2
+- p: [7, 8, 9]
+  k: $$mdi:penguin$$
+  l: [FNC]
+  a: top
+  o: 0.2
 - p: [0, 1]
   k: Toggle MSE
   l: [MSE, MSF]

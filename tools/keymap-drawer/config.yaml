@@ -188,8 +188,8 @@ parse_config:
     '&case_snake': Snake
     '&case_camel': Camel
     '&case_kebab': Kebab
-    '&os_sel OS_MAC': Mac
-    '&os_sel OS_LIN': Linux
+    '&os_sel OS_MAC': $$mdi:apple$$
+    '&os_sel OS_LIN': $$mdi:penguin$$
     '&hml_outer 0 A': {t: A, h: '$$phosphor:regular/control$$'}
     '&hml_inner 0 D': {t: D, h: '$$phosphor:regular/command$$'}
     '&hmr_inner 0 K': {t: K, h: '$$phosphor:regular/command$$'}
@@ -217,6 +217,7 @@ parse_config:
     '&tog SYS': Toggle SYS
     '&to BASE': Base
     '&sl MSE': Sticky MSE
+    '&sk LSHFT': Sticky Shift
     '&tof MSE': Exit MSE
     '&tof 4': Exit MSE
     '&drag_on': Drag On
@@ -469,6 +470,8 @@ parse_config:
     combo_caps_word:
       draw_separate: true
     combo_enter:
+      draw_separate: true
+    combo_sticky_shift:
       draw_separate: true
     combo_cut:
       a: bottom

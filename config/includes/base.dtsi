@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/oskey.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <behaviors/rgbled_widget.dtsi> // rgb led indicator for battery and connection
+#include <behaviors/case_mode.dtsi> // case_modes behaviors
 
 // Layer definitions
 #define BASE 0
@@ -19,7 +20,6 @@
 
 #include "mouse.dtsi"
 #include "oskey.dtsi"
-#include "case_modes.dtsi"
 #include "combos.dtsi"
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>; };
