@@ -36,6 +36,8 @@
     COMBO(sticky_shift,      &sk LSHFT,          LM1 RM1,             BASE,              50, 150)
     COMBO(snake_case,        &case_snake,        LB1 RB1,             BASE,              50, 150)
     COMBO(camel_case,        &case_camel,        LT1 RT1,             BASE,              50, 150)
+    COMBO(os_mac,            &os_sel OS_MAC,     LT4 LT3 LT2,         FNC,               80, 200)
+    COMBO(os_linux,          &os_sel OS_LIN,     RT2 RT3 RT4,         FNC,               80, 200)
     COMBO(tog_mse_layer,     &tog MSE,           LT4 LT3,            MSE MSE_FAST,      40, 200, slow-release;)
   };
 };

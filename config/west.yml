@@ -15,6 +15,9 @@ manifest:
     # Case mode behavior module
     - name: msmaili
       url-base: https://github.com/MSmaili
+    # OS-aware shortcut module
+    - name: mentaldesk
+      url-base: https://github.com/mentaldesk
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -31,6 +34,9 @@ manifest:
       revision: main
     - name: zmk-case-mode
       remote: msmaili
+      revision: main
+    - name: oskey
+      remote: mentaldesk
       revision: main
   self:
     path: config

@@ -1,0 +1,139 @@
+#define OSKEY_HMR_PROPS           \
+    tapping-term-ms = <230>;      \
+    quick-tap-ms = <150>;         \
+    require-prior-idle-ms = <130>;\
+    flavor = "balanced";         \
+    hold-trigger-key-positions = <KEYS_L THUMBS>; \
+    hold-trigger-on-release;
+
+#define OSKEY_HML_PROPS               \
+    tapping-term-ms = <230>;          \
+    quick-tap-ms = <155>;             \
+    require-prior-idle-ms = <130>;    \
+    flavor = "balanced";             \
+    hold-trigger-key-positions = <KEYS_R LH0 RH0 RH1>; \
+    hold-trigger-on-release;
+
+#define OS_HML_OUTER(k) &hml_outer 0 k
+#define OS_HML_INNER(k) &hml_inner 0 k
+#define OS_HMR_INNER(k) &hmr_inner 0 k
+#define OS_HMR_OUTER(k) &hmr_outer 0 k
+#define OS_HML_LINE_START &hml_line_start 0 0
+#define OS_HML_PREV_WORD &hml_prev_word LALT 0
+#define OS_HML_DEL_PREV_WORD &hml_del_prev_word 0 0
+#define OS_HML_NEXT_WORD &hml_next_word LSHFT 0
+
+/ {
+    behaviors {
+        os_sel: os_selector {
+            compatible = "zmk,behavior-os-selector";
+            #binding-cells = <1>;
+        };
+
+        ok_line_start: os_key_line_start {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp HOME>, <&kp LG(LEFT)>, <&kp HOME>;
+        };
+
+        ok_prev_word: os_key_prev_word {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT)>, <&kp LA(LEFT)>, <&kp LC(LEFT)>;
+        };
+
+        ok_next_word: os_key_next_word {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT)>, <&kp LA(RIGHT)>, <&kp LC(RIGHT)>;
+        };
+
+        ok_line_end: os_key_line_end {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp END>, <&kp LG(RIGHT)>, <&kp END>;
+        };
+
+        ok_mod_outer: os_key_mod_outer {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&kp LCTRL>, <&kp LGUI>;
+        };
+
+        ok_mod_inner: os_key_mod_inner {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp LGUI>, <&kp LCTRL>;
+        };
+
+        ok_del_prev_word: os_key_del_prev_word {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LC(BSPC)>, <&kp LA(BSPC)>, <&kp LC(BSPC)>;
+        };
+
+        hmr_inner: hmr_inner {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_inner>, <&kp>;
+
+            #binding-cells = <2>;
+            OSKEY_HMR_PROPS
+        };
+
+        hmr_outer: hmr_outer {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_outer>, <&kp>;
+
+            #binding-cells = <2>;
+            OSKEY_HMR_PROPS
+        };
+
+        hml_inner: hml_inner {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_inner>, <&kp>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+
+        hml_outer: hml_outer {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_outer>, <&kp>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+
+        hml_line_start: hml_line_start {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_outer>, <&ok_line_start>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+
+        hml_prev_word: hml_prev_word {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&kp>, <&ok_prev_word>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+
+        hml_del_prev_word: hml_del_prev_word {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_inner>, <&ok_del_prev_word>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+
+        hml_next_word: hml_next_word {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&kp>, <&ok_next_word>;
+
+            #binding-cells = <2>;
+            OSKEY_HML_PROPS
+        };
+    };
+};

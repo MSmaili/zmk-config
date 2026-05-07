@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/oskey.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <behaviors/rgbled_widget.dtsi> // rgb led indicator for battery and connection
 
@@ -17,6 +18,7 @@
 #define MEH_MOD LA(LS(LCTRL))
 
 #include "mouse.dtsi"
+#include "oskey.dtsi"
 #include "case_modes.dtsi"
 #include "combos.dtsi"
 
@@ -34,6 +36,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_release &mkp LCLK>;
+        };
+
+        bt_lin: bt_lin {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&os_sel OS_LIN>;
         };
     };
 
@@ -143,7 +151,7 @@
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭───────────────┬───────────────┬───────────────┬─────────────┬───────────────╮
      &kp Q,        &kp W,        &kp E,        &kp R,        &kp T,            &kp Y,           &kp U,          &kp I,        &kp O,           &kp P,      \
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┼─────────────┼───────────────┤
-     &hml LCTRL A, &hml LALT S,  &hml LGUI D,  &hml LSHFT F, &kp G,            &kp H,           &hmr RSHFT J, &hmr LGUI K,    &hmr LALT L,  &hmr LCTRL SEMI,\
+     OS_HML_OUTER(A), &hml LALT S,  OS_HML_INNER(D), &hml LSHFT F, &kp G,            &kp H,           &hmr RSHFT J, OS_HMR_INNER(K), &hmr LALT L,  OS_HMR_OUTER(SEMI),\
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┼─────────────┼───────────────┤
      &hml MEH_MOD Z,             &kp X,        &kp C,        &kp V,        &kp B,            &kp N,           &kp M,          &kp COMMA,      &kp DOT,     &hmr MEH_MOD SLASH, \
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├───────────────┼───────────────┼───────────────┴─────────────┴───────────────╯
@@ -158,7 +166,7 @@
 // ╭───────────────┬───────────────┬───────────────┬────────────────────┬───────────────╮   ╭───────────────┬────────────────────┬────────────────────┬────────────────────┬────────────────────╮
     &kp EXCL,        &kp AT_SIGN,     &kp HASH,        &kp DLLR,           &kp PRCNT,         &kp CARET,       &kp AMPS,            &kp ASTERISK,          &kp LPAR,             &kp RPAR,      \
 // ├───────────────┼───────────────┼───────────────┼────────────────────┼───────────────┤   ├───────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
-   &hml LCTRL EQUAL, &hml LALT UNDER, &hml LGUI LBRC, &hml LSHFT LBKT,    &kp SLASH,          &kp BSLH,        &hmr LSHFT RBKT,    &hmr LGUI RBRC,       &hmr LALT MINUS,     &hmr LCTRL COLON, \
+    OS_HML_OUTER(EQUAL), &hml LALT UNDER, OS_HML_INNER(LBRC), &hml LSHFT LBKT,   &kp SLASH,          &kp BSLH,        &hmr LSHFT RBKT,    OS_HMR_INNER(RBRC),    &hmr LALT MINUS,     OS_HMR_OUTER(COLON), \
 // ├───────────────┼───────────────┼───────────────┼────────────────────┼───────────────┤   ├───────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤
       &kp TILDE,       &kp PIPE,       &kp GRAVE,       &kp SQT,            &kp MINUS,         &kp PLUS,        &kp DOUBLE_QUOTES,  &kp LESS_THAN,       &kp GREATER_THAN,     &kp QUESTION,    \
 // ╰───────────────┴───────────────┴───────────────┼────────────────────┼───────────────┤   ├───────────────┼────────────────────┴────────────────────┴────────────────────┴────────────────────╯
@@ -173,7 +181,7 @@
 // ╭──────────────────┬───────────────┬────────────────────┬─────────────────┬──────────────╮   ╭────────────────────┬─────────────────┬───────────────┬──────────────────┬─────────────────────╮
      &kp N1,               &kp N2,      &kp N3,              &kp N4,           &kp N5,             &kp N6,             &kp N7,            &kp N8,        &kp N9,            &kp N0,             \
 // ├──────────────────┼───────────────┼────────────────────┼─────────────────┼──────────────┤   ├────────────────────┼─────────────────┼───────────────┼──────────────────┼─────────────────────┤
-     &hml LCTRL LG(LEFT), &hml LALT LA(LEFT), &hml LGUI LA(BSPC),  &hml LSHFT LA(RIGHT),  &kp LG(RIGHT),            &kp LEFT,           &hmr LSHFT DOWN,   &hmr LGUI UP,  &hmr LALT RIGHT,   &hmr LCTRL DEL,\
+      OS_HML_LINE_START,   OS_HML_PREV_WORD,   OS_HML_DEL_PREV_WORD, OS_HML_NEXT_WORD,      &ok_line_end,             &kp LEFT,           &hmr LSHFT DOWN,   OS_HMR_INNER(UP), &hmr LALT RIGHT,   OS_HMR_OUTER(DEL),\
 // ├──────────────────┼───────────────┼────────────────────┼─────────────────┼──────────────┤   ├────────────────────┼─────────────────┼───────────────┼──────────────────┼─────────────────────┤
      &kp LG(LBKT),        &tog MSE,      &kp MEH(H),                  &kp PG_UP,        &kp HOME,           &kp END,            &kp PG_DN,         &kp COMMA,      &kp DOT,          &kp LG(RBKT),      \
 // ╰──────────────────┴───────────────┴────────────────────┼─────────────────┼──────────────┤   ├────────────────────┴─────────────────┴───────────────┴──────────────────┴─────────────────────╯
@@ -235,7 +243,7 @@
 // ├────────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤   ├─────────────────┼─────────────────┼───────────────┼───────────────┼────────────────────┤
      &none,               &none,               &none,               &none,               &none,                  &none,             &none,           &none,          &none,          &none,          \
 // ├────────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┤   ├─────────────────┼─────────────────┼───────────────┼───────────────┼────────────────────┤
-     &bt BT_SEL 0,        &bt BT_SEL 1,        &bt BT_SEL 2,        &bt BT_SEL 3,        &rst_boot 0 0,          &rst_boot 0 0,     &studio_unlock,  &out OUT_USB,   &out OUT_BLE,   &bt BT_CLR,     \
+     &bt BT_SEL 0,        &bt_lin,             &bt BT_SEL 2,        &bt BT_SEL 3,        &rst_boot 0 0,          &rst_boot 0 0,     &studio_unlock,  &out OUT_USB,   &out OUT_BLE,   &bt BT_CLR,     \
 // ╰────────────────────┴────────────────────┴────────────────────┼────────────────────┼────────────────────┤   ├─────────────────┴─────────────────┴───────────────┴───────────────┴────────────────────╯
                                                 &trans,              &none,               &tog SYS,              &none,            &to BASE,        &trans         \
 //                                           ╰────────────────────┴────────────────────┴────────────────────╯   ╰─────────────────┴─────────────────┴────────────────╯

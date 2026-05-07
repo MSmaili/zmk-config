@@ -188,6 +188,29 @@ parse_config:
     '&case_snake': Snake
     '&case_camel': Camel
     '&case_kebab': Kebab
+    '&os_sel OS_MAC': Mac
+    '&os_sel OS_LIN': Linux
+    '&hml_outer 0 A': {t: A, h: '$$phosphor:regular/control$$'}
+    '&hml_inner 0 D': {t: D, h: '$$phosphor:regular/command$$'}
+    '&hmr_inner 0 K': {t: K, h: '$$phosphor:regular/command$$'}
+    '&hmr_outer 0 SEMI': {t: ;, h: '$$phosphor:regular/control$$'}
+    '&hml_outer 0 EQUAL': {t: '=', h: '$$phosphor:regular/control$$'}
+    '&hml_inner 0 LBRC': {t: '{', h: '$$phosphor:regular/command$$'}
+    '&hmr_inner 0 RBRC': {t: '}', h: '$$phosphor:regular/command$$'}
+    '&hmr_outer 0 COLON': {t: ':', h: '$$phosphor:regular/control$$'}
+    '&hml_line_start 0 0': {t: StartLn, h: '$$phosphor:regular/control$$'}
+    '&hml_prev_word LALT 0': {t: Prev Word, h: '$$phosphor:regular/option$$'}
+    '&hml_del_prev_word 0 0': {t: Del Word, h: '$$phosphor:regular/command$$'}
+    '&hml_next_word LSHFT 0': {t: Next Word, h: '$$phosphor:regular/arrow-fat-up$$'}
+    '&hmr_inner 0 UP': {t: ↑, h: '$$phosphor:regular/command$$'}
+    '&hmr_outer 0 DEL': {t: ⌦, h: '$$phosphor:regular/control$$'}
+    '&ok_mod_outer': Ctrl/Cmd
+    '&ok_mod_inner': Cmd/Ctrl
+    '&ok_line_start': StartLn
+    '&ok_prev_word': Prev Word
+    '&ok_del_prev_word': Del Word
+    '&ok_next_word': Next Word
+    '&ok_line_end': EndLn
     '&out OUT_USB': Out USB
     '&out OUT_BLE': Out BT
     '&tog MSE': Toggle MSE
@@ -456,6 +479,12 @@ parse_config:
     combo_indbat:
       a: top
       o: 1
+    combo_os_mac:
+      a: top
+      o: 0.2
+    combo_os_linux:
+      a: top
+      o: 0.2
     combo_indcon:
       a: top
       o: 0.5
