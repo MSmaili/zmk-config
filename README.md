@@ -2,47 +2,116 @@
 
 | [Ferris Sweep](https://github.com/davidphilipbarr/Sweep)                                                                                  | [Urchin](https://github.com/duckyb/urchin)                                                                                          | [Forager](https://github.com/carrefinho/forager)                                                                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img width="250" height="250" alt="Ferris Sweep" src="https://github.com/user-attachments/assets/b81f97ac-0166-47d5-a392-54801568a16a" /> | <img width="250" height="250" alt="Urchin" src="https://github.com/user-attachments/assets/3eb89138-079e-4ab2-a906-678a655aec41" /> | <img width="250" height="250" alt="Forager keyboard" src="https://github.com/user-attachments/assets/5efa6680-a84d-45ea-9c31-fbd49ce2de95" /> |
+| <img width="250" height="200" alt="Ferris Sweep" src="https://github.com/user-attachments/assets/b81f97ac-0166-47d5-a392-54801568a16a" /> | <img width="250" height="200" alt="Urchin" src="https://github.com/user-attachments/assets/3eb89138-079e-4ab2-a906-678a655aec41" /> | <img width="250" height="200" alt="Forager keyboard" src="https://github.com/user-attachments/assets/5efa6680-a84d-45ea-9c31-fbd49ce2de95" /> |
 
-This repo contains my personal [ZMK](https://zmk.dev/) keymap for three different 34-key boards. The logical layout is shared, while board-specific firmware targets and shields are handled in `build.yaml`.
+This repo contains my personal [ZMK](https://zmk.dev/) layout for three different 34-key boards. All three share the same logical keymap, while `build.yaml` handles the board-specific firmware targets.
 
-## One Shared Keymap
+The goal is not to build the most exotic layout possible. It is a pragmatic 34-key setup that stays close to normal QWERTY, keeps programming symbols easy to reach, and smooths over the annoying differences between Linux and macOS.
 
-Shared layout logic lives in `config/includes/`:
+## What This Layout Optimizes For
 
-- `base.dtsi` for layers, hold-taps, and core behaviors
-- `combos.dtsi` for combo definitions
-- `mouse.dtsi` for mouse movement and scroll behavior
+- Familiarity first: I want standard QWERTY muscle memory to transfer well.
+- Small-board practicality: thumbs and layers do the heavy lifting instead of stretching for distant keys.
+- Programming comfort: common symbols and editing actions are close to home row.
+- Cross-device consistency: the same layout works across Sweep, Urchin, and Forager.
+- Cross-OS consistency: shortcuts and navigation adapt between Linux and macOS.
 
-Changes in these files apply to all three boards (Sweep, Urchin, and Forager).
+## Start Here
+
+If you want to understand the repo quickly, read the files in this order:
+
+1. `config/includes/base.dtsi` for the shared layers, hold-taps, macros, and the main keymap.
+2. `config/includes/oskey.dtsi` for the Linux/macOS-aware modifiers and navigation helpers.
+3. `config/includes/combos.dtsi` for combos.
+4. `config/includes/mouse.dtsi` for mouse tuning.
+5. `build.yaml` for the actual flash targets.
+
+Notes:
+
+- The Sweep uses the `cradio_*` shield names internally, so some files and generated artifacts still use `cradio`.
+- The shared keymap logic lives in `config/includes/`, so changes there apply to all three boards.
+
+## Modules and Why I Use Them
+
+This config uses a few external ZMK modules in addition to upstream ZMK itself.
+
+| Module | Small description | Why I use it here |
+| --- | --- | --- |
+| [`zmk-case-mode`](https://github.com/MSmaili/zmk-case-mode) | Case-mode behavior for typing identifiers with normal spaces. | I use it for `snake_case`, `camelCase`, and `kebab-case` combos on the base layer so coding-style names are easier on a 34-key board. |
+| [`oskey`](https://github.com/mentaldesk/oskey) | OS-aware key behavior for Linux/macOS shortcut differences. | I use it for swapped `Ctrl`/`Cmd` home-row mods, word movement, line movement, and delete-word behavior without maintaining separate keymaps. |
+| [`zmk-rgbled-widget`](https://github.com/caksoylar/zmk-rgbled-widget) | RGB LED status indicator module. | I use it for battery and connection indicators on builds that support an RGB LED. |
+
+## Layer Model
+
+- `BASE`: QWERTY, home-row mods, thumb-layer access, and the main daily typing layer.
+- `SYM`: symbols and punctuation placed in familiar QWERTY-style positions.
+- `NAV`: navigation, numbers, word movement, line movement, delete, and paging.
+- `FNC`: function keys, media controls, and the utility layer where I trigger status and OS-selection combos.
+- `SYS`: Bluetooth profile control, output switching, reset, bootloader, and ZMK Studio unlock.
+- `MSE`: mouse movement, scrolling, clicks, and drag helpers.
+- `MSE_FAST`: a faster temporary mouse/scroll layer.
+
+`FNC` is a tri-layer that appears when both `SYM` and `NAV` are active.
+
+`SYS` is intentionally hidden behind `FNC` so reset, Bluetooth, and output controls are harder to trigger by accident.
+
+## Behavior Choices
+
+### Base layer philosophy
+
+- The alpha layout stays intentionally close to standard QWERTY.
+- Numbers stay on the top row instead of moving to a more abstract arrangement.
+- Symbols try to preserve familiar positions where possible.
+- Vim-style directional movement is kept on the navigation layer.
+
+### Home-row mods and thumbs
+
+- Home-row mods are tuned with custom hold-tap settings for cleaner tap vs hold behavior.
+- The thumbs carry most of the layout: `SYM/SPACE`, `NAV/BSPC`, `TAB`, and `ENTER`.
+- This keeps the main typing area simple while still fitting a full daily-driver workflow into 34 keys.
+
+### Editing and utility combos
+
+Combos are used for actions that are frequent enough to deserve a shortcut but not important enough to consume a dedicated key.
+
+Current combos include:
+
+- editing: `Delete`, `Cut`, `Copy`, `Paste`
+- control: `Escape`, `Enter`, `Caps Word`, sticky shift
+- casing: `snake_case`, `kebab-case`, `camelCase`
+- navigation aid: fast scroll combos
+- utility: `Soft Off`, battery indicator, connection indicator, mouse toggle
+- OS switching: dedicated macOS and Linux combos on `FNC`
 
 ## Build Profiles and Flash Targets
 
-Each keyboard supports two connection modes:
+Each keyboard supports two connection modes.
 
 ### Dongle mode
 
-- `<keyboard>_dongle` -> flash to dongle
-- `<keyboard>_left_peripheral` -> flash to left half
-- `<keyboard>_right` -> flash to right half
+- `<keyboard>_dongle`: flash to the dongle
+- `<keyboard>_left_peripheral`: flash to the left half
+- `<keyboard>_right`: flash to the right half
 
 ### Dongleless mode
 
-- `<keyboard>_left_central` -> flash to left half (central)
-- `<keyboard>_right` -> flash to right half
+- `<keyboard>_left_central`: flash to the left half acting as central
+- `<keyboard>_right`: flash to the right half
 
 ## CI vs Local Builds
 
-### CI (full matrix)
+### CI
 
-- GitHub Actions builds the full matrix from `build.yaml`, including all boards and both dongle + dongleless profiles.
+GitHub Actions builds the full matrix from `build.yaml`, including all boards and both dongle and dongleless profiles.
 
-### Local Docker (single board iteration)
+### Local Docker
 
-- Use local Docker when you want to iterate on one board only.
-- Build one board locally with `make build KEYBOARD=<sweep|urchin|forager>`.
-- Build dongle profile locally with `make build KEYBOARD=<...> DONGLE=1`.
-- Prerequisite: Docker daemon must be running.
+Use local Docker when iterating on one board.
+
+- `make build KEYBOARD=<sweep|urchin|forager>` builds a single board in dongleless mode
+- `make build KEYBOARD=<sweep|urchin|forager> DONGLE=1` builds the dongle profile set
+- `make draw KEYBOARD=<sweep|urchin|forager>` regenerates the keymap drawing
+- Docker must be running first
 
 ```sh
 make help
@@ -57,48 +126,12 @@ make draw KEYBOARD=urchin
 make draw KEYBOARD=forager
 ```
 
-Notes:
+Build notes:
 
-- Local firmware builds read `build.yaml` directly, so board/shield/snippet/cmake options stay aligned with CI builds.
-- Firmware output files are written to `build/local/`:
-  - Dongleless (`DONGLE=0`): `build/local/<keyboard>_right.uf2`, `build/local/<keyboard>_left_central.uf2`
-  - Dongle (`DONGLE=1`): `build/local/<keyboard>_left_peripheral.uf2`, `build/local/<keyboard>_right.uf2`, `build/local/<keyboard>_dongle.uf2`
-- Keymap-drawer output files are written to `tools/keymap-drawer/`.
-- First keymap draw builds a pinned local Docker image for keymap-drawer.
-
-## How the Layout Works
-
-### Layout philosophy
-
-- The layout is intentionally close to standard QWERTY, so muscle memory still transfers well.
-- Number keys stay on the top row, similar to a regular keyboard.
-- The symbol layer also follows familiar top-row QWERTY positions where possible.
-- Navigation follows Vim-like movement patterns.
-- High-usage programming symbols are placed closer to home row for faster access (`{}`, `[]`, `_`, `-`, `=`, `:`).
-
-### Layer model
-
-- `BASE`: QWERTY + home-row mods
-- `SYM`: symbols and punctuation in familiar QWERTY-style positions
-- `NAV`: Vim-style navigation, number row, word navigation, Delete, back/forward
-- `FNC`: function keys, media controls (volume, brightness, playback)
-- `SYS`: Bluetooth profiles, output switching (USB/BLE), reset/bootloader, ZMK Studio unlock
-- `MSE`: mouse movement, scroll, clicks, drag helpers
-- `MSE_FAST`: faster temporary mouse/scroll behavior
-
-`FNC` is a tri-layer: it activates when both `SYM` and `NAV` are active.
-`SYS` is toggled from the `FNC` layer, intentionally harder to reach to avoid accidental taps
-
-### Core behavior choices
-
-- Home-row mods are tuned with custom hold-tap settings for reliable mod/tap distinction.
-- Thumb keys are used heavily for layer access and core keys (Space, Backspace, Tab, Enter).
-- Common coding symbols are kept close to home row to reduce finger travel while programming.
-- Combos are intentional and practical (defined in `config/includes/combos.dtsi`), including:
-  - Editing: `Delete`, `Cut`, `Copy`, `Paste`
-  - Control: `Escape` (including a left-hand escape combo), `Enter`, `Caps Word`
-  - Navigation aid: fast scroll combos (`UIO` for up, `M,.` for down)
-  - Utility (on `FNC`): `Soft Off`, battery/connection indicator combos
+- Local firmware builds read `build.yaml` directly, so local and CI targets stay aligned.
+- Firmware outputs are written to `build/local/`.
+- Keymap-drawer outputs are written to `tools/keymap-drawer/`.
+- The first keymap draw builds a pinned local Docker image for keymap-drawer.
 
 ## Layer Map
 
