@@ -90,17 +90,17 @@ layers:
   - {t: ↓, h: '$$phosphor:regular/arrow-fat-up$$'}
   - {t: ↑, h: '$$phosphor:regular/command$$'}
   - {t: →, h: '$$phosphor:regular/option$$'}
-  - {t: ⌦, h: '$$phosphor:regular/control$$'}
-  - Cmd + [
-  - Toggle MSE
-  - Meh + H
+  - {t: Del Line, h: '$$phosphor:regular/control$$'}
+  - Back
+  - Prev Tab
+  - Homerow
   - PgUp
   - Home
   - End
   - PgDwn
-  - ','
-  - .
-  - Cmd + ]
+  - Leader
+  - Next Tab
+  - Forward
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -128,7 +128,7 @@ layers:
   - $$phosphor:regular/control$$
   - {t: '$$mdi:volume-medium$$', h: '$$mdi:volume-off$$'}
   - $$mdi:skip-backward$$
-  - ''
+  - Toggle MSE
   - Print Scrn
   - Bright -
   - Bright +
@@ -272,12 +272,18 @@ combos:
 - p: [23, 26]
   k: Snake
   l: [BASE]
+  a: top
+  o: 0.01
 - p: [13, 16]
   k: Kebab
   l: [BASE]
+  a: top
+  o: 0.1
 - p: [3, 6]
   k: Camel
   l: [BASE]
+  a: top
+  o: 0.1
 - p: [0, 1, 2]
   k: $$mdi:apple$$
   l: [FNC]

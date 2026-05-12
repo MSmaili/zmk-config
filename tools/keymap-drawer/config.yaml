@@ -204,6 +204,7 @@ parse_config:
     '&hml_next_word LSHFT 0': {t: Next Word, h: '$$phosphor:regular/arrow-fat-up$$'}
     '&hmr_inner 0 UP': {t: ↑, h: '$$phosphor:regular/command$$'}
     '&hmr_outer 0 DEL': {t: ⌦, h: '$$phosphor:regular/control$$'}
+    '&hmr_del_line 0 0': {t: Del Line, h: '$$phosphor:regular/control$$'}
     '&ok_mod_outer': Ctrl/Cmd
     '&ok_mod_inner': Cmd/Ctrl
     '&ok_line_start': StartLn
@@ -211,6 +212,16 @@ parse_config:
     '&ok_del_prev_word': Del Word
     '&ok_next_word': Next Word
     '&ok_line_end': EndLn
+    '&ok_back': Back
+    '&ok_forward': Forward
+    '&ok_prev_tab_gui': Prev Tab
+    '&ok_next_tab_gui': Next Tab
+    '&ok_del_line': Del Line
+    '&kp MEH(H)': Homerow
+    '&kp MEH(SPACE)': Leader
+    '&ok_doc_start': Doc Start
+    '&ok_doc_end': Doc End
+    '&ok_find': Find
     '&out OUT_USB': Out USB
     '&out OUT_BLE': Out BT
     '&tog MSE': Toggle MSE
@@ -491,5 +502,15 @@ parse_config:
     combo_indcon:
       a: top
       o: 0.5
+    combo_camel_case:
+      a: top
+      o: 0.1
+    combo_snake_case:
+      a: top
+      o: 0.01
+    combo_kebab_case:
+      a: top
+      o: 0.1
+
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: []

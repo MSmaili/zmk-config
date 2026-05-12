@@ -521,22 +521,22 @@ use.phosphor\:regular\/control {
 <text x="60" y="68" class="combo tap">Esc</text>
 </g>
 <g class="combo combopos-8">
-<path d="M360,167 l-130,0" class="combo"/>
-<path d="M360,167 l130,0" class="combo"/>
-<rect rx="6" ry="6" x="346" y="153" width="28" height="28" class="combo"/>
-<text x="360" y="167" class="combo tap">Snake</text>
+<path d="M360,136 h-144 a6.0,6.0 0 0 0 -6.0,6.0 v6" class="combo"/>
+<path d="M360,136 h144 a6.0,6.0 0 0 1 6.0,6.0 v6" class="combo"/>
+<rect rx="6" ry="6" x="346" y="122" width="28" height="28" class="combo"/>
+<text x="360" y="136" class="combo tap">Snake</text>
 </g>
 <g class="combo combopos-9">
-<path d="M360,107 l-130,0" class="combo"/>
-<path d="M360,107 l130,0" class="combo"/>
-<rect rx="6" ry="6" x="346" y="93" width="28" height="28" class="combo"/>
-<text x="360" y="107" class="combo tap">Kebab</text>
+<path d="M360,70 h-144 a6.0,6.0 0 0 0 -6.0,6.0 v11" class="combo"/>
+<path d="M360,70 h144 a6.0,6.0 0 0 1 6.0,6.0 v11" class="combo"/>
+<rect rx="6" ry="6" x="346" y="56" width="28" height="28" class="combo"/>
+<text x="360" y="70" class="combo tap">Kebab</text>
 </g>
 <g class="combo combopos-10">
-<path d="M360,47 l-130,0" class="combo"/>
-<path d="M360,47 l130,0" class="combo"/>
-<rect rx="6" ry="6" x="346" y="33" width="28" height="28" class="combo"/>
-<text x="360" y="47" class="combo tap">Camel</text>
+<path d="M360,10 h-144 a6.0,6.0 0 0 0 -6.0,6.0 v11" class="combo"/>
+<path d="M360,10 h144 a6.0,6.0 0 0 1 6.0,6.0 v11" class="combo"/>
+<rect rx="6" ry="6" x="346" y="-4" width="28" height="28" class="combo"/>
+<text x="360" y="10" class="combo tap">Camel</text>
 </g>
 </g>
 </g>
@@ -782,26 +782,24 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(690, 147)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⌦</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.9em">Del</tspan><tspan x="0" dy="1.2em">Line</tspan>
+</text>
 <use href="#phosphor:regular/control" xlink:href="#phosphor:regular/control" x="-6" y="14" height="12" width="12.0" class="key hold glyph phosphor:regular/control"/>
 </g>
 <g transform="translate(30, 207)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em">Cmd</tspan><tspan x="0" dy="1.2em">+</tspan><tspan x="0" dy="1.2em">[</tspan>
-</text>
+<text x="0" y="0" class="key tap">Back</text>
 </g>
 <g transform="translate(90, 169)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Toggle</tspan><tspan x="0" dy="1.2em">MSE</tspan>
+<tspan x="0" dy="-0.6em">Prev</tspan><tspan x="0" dy="1.2em">Tab</tspan>
 </text>
 </g>
 <g transform="translate(150, 150)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em">Meh</tspan><tspan x="0" dy="1.2em">+</tspan><tspan x="0" dy="1.2em">H</tspan>
-</text>
+<text x="0" y="0" class="key tap">Homerow</text>
 </g>
 <g transform="translate(210, 167)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -821,17 +819,17 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(570, 150)" class="key keypos-27">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">,</text>
+<text x="0" y="0" class="key tap">Leader</text>
 </g>
 <g transform="translate(630, 169)" class="key keypos-28">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Next</tspan><tspan x="0" dy="1.2em">Tab</tspan>
+</text>
 </g>
 <g transform="translate(690, 207)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em">Cmd</tspan><tspan x="0" dy="1.2em">+</tspan><tspan x="0" dy="1.2em">]</tspan>
-</text>
+<text x="0" y="0" class="key tap">Forward</text>
 </g>
 <g transform="translate(237, 236) rotate(15.0)" class="key trans keypos-30">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -944,6 +942,9 @@ use.phosphor\:regular\/control {
 </g>
 <g transform="translate(150, 150)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Toggle</tspan><tspan x="0" dy="1.2em">MSE</tspan>
+</text>
 </g>
 <g transform="translate(210, 167)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>

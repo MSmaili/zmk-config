@@ -18,12 +18,31 @@
 #define OS_HML_INNER(k) &hml_inner 0 k
 #define OS_HMR_INNER(k) &hmr_inner 0 k
 #define OS_HMR_OUTER(k) &hmr_outer 0 k
+#define OS_HMR_DEL_LINE &hmr_del_line 0 0
 #define OS_HML_LINE_START &hml_line_start 0 0
 #define OS_HML_PREV_WORD &hml_prev_word LALT 0
 #define OS_HML_DEL_PREV_WORD &hml_del_prev_word 0 0
 #define OS_HML_NEXT_WORD &hml_next_word LSHFT 0
 
 / {
+    macros {
+        del_line_win: del_line_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp HOME>, <&macro_release &kp LSHFT>, <&kp BSPC>;
+        };
+
+        del_line_lin: del_line_lin {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp HOME>, <&macro_release &kp LSHFT>, <&kp BSPC>;
+        };
+    };
+
     behaviors {
         os_sel: os_selector {
             compatible = "zmk,behavior-os-selector";
@@ -72,6 +91,36 @@
             bindings = <&kp LC(BSPC)>, <&kp LA(BSPC)>, <&kp LC(BSPC)>;
         };
 
+        ok_back: os_key_back {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LEFT)>, <&kp LG(LBKT)>, <&kp LA(LEFT)>;
+        };
+
+        ok_forward: os_key_forward {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LA(RIGHT)>, <&kp LG(RBKT)>, <&kp LA(RIGHT)>;
+        };
+
+        ok_prev_tab_gui: os_key_prev_tab_gui {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(TAB))>, <&kp LG(LS(LBKT))>, <&kp LC(LS(TAB))>;
+        };
+
+        ok_next_tab_gui: os_key_next_tab_gui {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LC(TAB)>, <&kp LG(LS(RBKT))>, <&kp LC(TAB)>;
+        };
+
+        ok_del_line: os_key_del_line {
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&del_line_win>, <&kp LG(BSPC)>, <&del_line_lin>;
+        };
+
         hmr_inner: hmr_inner {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&ok_mod_inner>, <&kp>;
@@ -83,6 +132,14 @@
         hmr_outer: hmr_outer {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&ok_mod_outer>, <&kp>;
+
+            #binding-cells = <2>;
+            OSKEY_HMR_PROPS
+        };
+
+        hmr_del_line: hmr_del_line {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&ok_mod_outer>, <&ok_del_line>;
 
             #binding-cells = <2>;
             OSKEY_HMR_PROPS
